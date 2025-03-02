@@ -1,5 +1,4 @@
 /** @type {import('next').NextConfig} */
-
 const nextConfig = {
   reactStrictMode: true,
 
@@ -20,13 +19,8 @@ const nextConfig = {
         : "https://mi-app.com",
   },
 
-
-
-  // Asegura que Next.js ejecute el servidor sin generar un frontend
-  target: 'server',  // Esto permite que Next.js se ejecute solo en el servidor, sin generar una interfaz frontend.
-
-  // Configura el directorio de build para que se guarde en un lugar organizado
-  distDir: 'build', // Puedes cambiarlo a cualquier nombre que desees para la salida del build
+  // Elimina 'target: server' ya que es innecesario en Next.js 12+
+  distDir: 'build', // Puedes mantenerlo si deseas personalizar la carpeta de build
 };
 
 export default nextConfig;
