@@ -9,6 +9,7 @@ import reportsRoutes from "./api/routes/reports-routes.js"
 // import notifyExpiration from "./apiWhatsApp/routes/notify-expiration.js";
 
 import {startMessageSending} from "./api/schedule-messages/membership-to-expire.js"
+import cors from 'cors';
 
 import { validateHttpMethod } from "./api/middleware/validation.js";
 import {
@@ -21,6 +22,15 @@ const PORT = process.env.PORT;
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+
+
+app.use(
+  cors({
+    origin: 'https://ro-ma-sys.vercel.app',
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+  })
+);
 
 
 //? Middleware para validar métodos HTTP
