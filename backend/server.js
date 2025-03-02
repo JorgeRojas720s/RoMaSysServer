@@ -24,7 +24,7 @@ app.use(express.json());
 
 const cors = require('cors');
 app.use(cors({
-    origin: 'https://ro-ma-sys.vercel.app',
+    origin: '*',
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization'],
 }));
