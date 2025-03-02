@@ -37,9 +37,6 @@ app.use((req, res, next) => {
   next();
 });
 
-
-
-
 // Middleware para validar métodos HTTP
 app.use(validateHttpMethod);
 
