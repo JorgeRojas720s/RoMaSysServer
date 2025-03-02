@@ -17,7 +17,7 @@ import {
 } from "./api/middleware/errorHandler.js";
 
 const app = express();
-const PORT = process.env.PORT || 3000; // Añade un valor por defecto para el puerto
+const PORT = process.env.PORT; // Añade un valor por defecto para el puerto
 
 // Middleware para parsear el body de las solicitudes
 app.use(express.urlencoded({ extended: false }));
