@@ -20,15 +20,7 @@ const nextConfig = {
         : "https://mi-app.com",
   },
 
-  // Reescritura de rutas para manejar las peticiones hacia otros servicios
-  async rewrites() {
-    return [
-      {
-        source: "/api/:path*",  // Redirige todas las rutas API
-        destination: `${process.env.BASE_URL_WHATSAPP}/api/:path*`,
-      },
-    ];
-  },
+
 
   // Asegura que Next.js ejecute el servidor sin generar un frontend
   target: 'server',  // Esto permite que Next.js se ejecute solo en el servidor, sin generar una interfaz frontend.
