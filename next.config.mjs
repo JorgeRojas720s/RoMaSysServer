@@ -14,16 +14,11 @@ const nextConfig = {
     apiUrl:
       process.env.NODE_ENV === "development"
         ? "http://localhost:3000"
-        : "https://ro-ma-sys-server.vercel.app",
+        : "https://mi-app.com",
   },
 
   async rewrites() {
-    return [
-      {
-        source: "/api/:path*",
-        destination: "https://ro-ma-sys-server.vercel.app/api/:path*", // URL del backend
-      },
-    ];
+    return [];
   },
 
   async headers() {
