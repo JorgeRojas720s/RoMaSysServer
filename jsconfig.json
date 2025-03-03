@@ -1,7 +1,9 @@
 {
   "compilerOptions": {
+    "baseUrl": "./",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./*"],
+      "@nextui-org/react":["nextui-org/react"]
     }
   }
 }
