@@ -2,7 +2,7 @@
 import fetch from 'node-fetch';
 
 export default async function handler(req, res) {
-  const backendUrl = 'https://ro-ma-sys-server.vercel.app/api/clients'; // URL de tu servidor backend
+  const backendUrl = 'https://ro-ma-sys-server.vercel.app/backend/server'; // URL de tu servidor backend
   const response = await fetch(backendUrl, {
     method: req.method,
     headers: req.headers,

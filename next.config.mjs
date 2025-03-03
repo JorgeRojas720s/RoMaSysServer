@@ -18,7 +18,12 @@ const nextConfig = {
   },
 
   async rewrites() {
-    return [];
+    return [
+      {
+        source: "/api/:path*",
+        destination: "https://ro-ma-sys-server.vercel.app/api/:path*", // URL del backend
+      },
+    ];
   },
 
   async headers() {
