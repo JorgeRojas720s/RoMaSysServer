@@ -46,21 +46,36 @@ export async function startMessageSending() {
     console.error("Error al procesar mensajes programados:", error);
   }
 }
+
+
 async function sendAndMarkAsSent(client, clientAdditionalData, message) {
   console.log(`Enviando mensaje a: ${message.msg_client_id}`);
   try {
+    const response = await fetch("http://localhost:3000/api/sendEmail", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        subject: "Reminder 📍",
+        clientEmail: client.cli_email,
+        clientName: client.cli_name,
+        content: "Su mensualidad se encuentra vencida",
+        typeOfEmail: "reminder",
+      }),
+    });
 
-    await sendEmail(
-      subjectEmail,
-      client.cli_email,
-      client.cli_name,
-      messageToSend,
-      typeOfEmail
-    );
-
-    console.log("Se envio la kk");
-    await MessageAgenda.findOneAndDelete({ _id: message._id });
+    const data = await response.json();
+    if (response.ok) {
+      console.log("Correo enviado con éxito:", data);
+      await MessageAgenda.findOneAndDelete({ _id: message._id });
+    } else {
+      console.error("Error al enviar el correo:", data);
+    }
   } catch (error) {
     console.error("Error al enviar mensaje:", error);
   }
 }
+
+
+
