@@ -1,5 +1,6 @@
 import clientsRoutes from "../api/routes/clients-routes.js"
 
+console.log("Enter a clientes");
 
 export default async function handler(req, res) {
     // Configura CORS
@@ -13,6 +14,7 @@ export default async function handler(req, res) {
     }
   
     try {
+      console.log("Tamos en el try");
       await clientsRoutes(req, res);
     } catch (error) {
       console.error("Error in /api/clients:", error);

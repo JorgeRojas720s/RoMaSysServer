@@ -2,6 +2,8 @@
 import { getClients, addClient, updateClient, deleteClient, getClientById } from "../controllers/clients-controller.js";
 
 export default async function handler(req, res) {
+
+  console.log("holait");
   const { cli_id } = req.query; // Obtén el parámetro de la URL (si existe)
 
   try {
