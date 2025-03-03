@@ -8,7 +8,7 @@ import {
 } from "./services/clientValidations.js";
 import { calculateNextPayDate } from "./services/clientUtils.js";
 // import { sendEmail } from "../../apiBrevo/sendEmail.js";
-import sendEmail from "../../../sendEmail.js";
+import sendEmail from "../sendEmail.js";
 
 const Client = db.Clients;
 const AdditionalData = db.AdditionalClientData;
