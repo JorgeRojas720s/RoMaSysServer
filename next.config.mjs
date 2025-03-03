@@ -14,7 +14,7 @@ const nextConfig = {
     apiUrl:
       process.env.NODE_ENV === "development"
         ? "http://localhost:3000"
-        : "https://mi-app.com",
+        : "https://ro-ma-sys-server.vercel.app",
   },
 
   async rewrites() {
