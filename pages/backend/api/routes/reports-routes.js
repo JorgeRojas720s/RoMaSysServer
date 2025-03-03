@@ -1,5 +1,5 @@
 // pages/api/reports.js
-import { getReport, getIncomingByRange } from "../../../controllers/reports-controller.js";
+import { getReport, getIncomingByRange } from "../controllers/reports-controller.js";
 
 export default async function handler(req, res) {
   const { query } = req; // Obtén los parámetros de la URL (si existen)

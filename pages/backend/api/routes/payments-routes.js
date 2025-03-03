@@ -1,5 +1,5 @@
 // pages/api/payments.js
-import { addPayment, getPayment } from "../../../controllers/payments-controller.js";
+import { addPayment, getPayment } from "../controllers/payments-controller.js";
 
 export default async function handler(req, res) {
   const { pay_client_id } = req.query; // Obtén el parámetro de la URL (si existe)
