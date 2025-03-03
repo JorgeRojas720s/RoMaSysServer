@@ -51,7 +51,7 @@ export async function startMessageSending() {
 async function sendAndMarkAsSent(client, clientAdditionalData, message) {
   console.log(`Enviando mensaje a: ${message.msg_client_id}`);
   try {
-    const response = await fetch("http://localhost:3000/api/sendEmail", {
+    const response = await fetch("https://ro-ma-sys-server.vercel.app/api/sendEmail", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

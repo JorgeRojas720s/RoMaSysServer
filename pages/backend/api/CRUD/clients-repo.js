@@ -97,13 +97,20 @@ async function addClient(req, res) {
         rutine.rut_id
       );
 
-      await sendEmail(
-        subjectEmail,
-        body.cli_email,
-        body.cli_name,
-        rutine.rut_rutine,
-        typeOfEmail
-      );
+      const response = await fetch("https://ro-ma-sys-server.vercel.app/api/sendEmail", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          subject: "Reminder 📍",
+          clientEmail: client.cli_email,
+          clientName: client.cli_name,
+          content: "Su mensualidad se encuentra vencida",
+          typeOfEmail: "reminder",
+        }),
+      });
+
       body.cli_additional_data = additionalData._id;
     }
 
@@ -221,13 +228,19 @@ async function updateClient(req, res, cli_id) {
         rutine.rut_id
       );
 
-      await sendEmail(
-        subjectEmail,
-        body.cli_email,
-        body.cli_name,
-        rutine.rut_rutine,
-        typeOfEmail
-      );
+    const response = await fetch("https://ro-ma-sys-server.vercel.app/api/sendEmail", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        subject: "Reminder 📍",
+        clientEmail: client.cli_email,
+        clientName: client.cli_name,
+        content: "Su mensualidad se encuentra vencida",
+        typeOfEmail: "reminder",
+      }),
+    });
 
       body.cli_additional_data = additionalData._id;
     }
